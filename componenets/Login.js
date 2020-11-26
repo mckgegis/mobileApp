@@ -46,9 +46,20 @@ const Login = ({ navigation }) => {
                 secureTextEntry={true}
               />
             </View>
+            <View
+              style={{ flexDirection: "col", justifyContent: "space-evenly" }}
+            >
+              <View style={styles.button} onPress={login}>
+                <Button title="Login" />
+              </View>
+              <View
+                style={{ marginTop: 15, width: "100%" }}
+                onPress={() => navigation.navigate("SignUp")}
+              >
+                <Button title="Create An Account" />
+              </View>
+            </View>
           </View>
-            <Button title="Login" style={styles.button} onPress={login} />
-          <Button style={{marginTop: 15}} title="Create An Account" onPress={() => navigation.navigate("SignUp")}/>
         </KeyboardAwareScrollView>
         <View>
           <Footer text="Footer" />
@@ -65,6 +76,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         width: '100%',
         // paddingTop: 10
+        borderRadius: 10,
+        shadowColor: 'black',
+        shadowOffset: {height: 2, width: 0},
+        shadowRadius: 6,
+        shadowOpacity: .26
     },
     header: {
         flex: 0.2,
@@ -75,13 +91,24 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     inputsContainer: {
-        justifyContent: 'center'
+        justifyContent: 'center',
+        borderRadius: 10,
+        shadowColor: 'black',
+        shadowOffset: {height: 5, width: 0},
+        shadowRadius: 6,
+        shadowOpacity: .5,
+        width: '80%',
+        alignSelf: 'center',
+        paddingVertical: 20,
+        paddingHorizontal: 50,
+        alignItems:'center'
     },
     inputContainer: {
-
+      width: 200,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     inputText: {
-        width: 300,
         height: 40,
         borderColor: 'blue',
         borderRadius: 10,
@@ -96,6 +123,7 @@ const styles = StyleSheet.create({
     },
     button: {
         borderRadius: 10,
+        width: '100%',
     }
 
 });
