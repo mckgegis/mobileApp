@@ -1,13 +1,21 @@
-import React from 'react';
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
-import BodyText from './BodyText';
-import TitleText from './TitleText';
-import colors from '../constants/colors';
-import MainButton from './MainButton'
+import React from "react";
+import {
+  View,
+  Text,
+  Button,
+  Image,
+  StyleSheet,
+  Dimensions,
+  ScrollView
+} from "react-native";
+import BodyText from "./BodyText";
+import TitleText from "./TitleText";
+import colors from "../constants/colors";
+import MainButton from "./MainButton";
 
 const GameOverScreen = props => {
-    
-    return (
+  return (
+    <ScrollView>
       <View style={styles.container}>
         <TitleText>The Game Is Over</TitleText>
         <View style={styles.imageContainer}>
@@ -27,38 +35,39 @@ const GameOverScreen = props => {
         </BodyText>
         <MainButton onPress={props.onRestart}>New Game</MainButton>
       </View>
-    );
+    </ScrollView>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent:'center',
-        alignItems: 'center'
-    },
-    imageContainer: {
-        width: 300,
-        borderRadius: 150,
-        height: 300,
-        borderWidth: 3,
-        borderColor: 'black',
-        overflow: "hidden",
-        marginVertical: 30,
-    },
-    image: {
-        width: '100%',
-        height: '100%'
-    },
-    highlight: {
-        color: colors.primary
-    },
-    bodyText: {
-        textAlign: 'center',
-        marginHorizontal: 30,
-        marginVertical: 15,
-        fontSize: 20
-        
-    }
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 10
+  },
+  imageContainer: {
+    width: Dimensions.get("window").width * 0.7,
+    borderRadius: (Dimensions.get("window").width * 0.7) / 2,
+    height: Dimensions.get("window").width * 0.7,
+    borderWidth: 3,
+    borderColor: "black",
+    overflow: "hidden",
+    marginVertical: Dimensions.get("window").height / 30
+  },
+  image: {
+    width: "100%",
+    height: "100%"
+  },
+  highlight: {
+    color: colors.primary
+  },
+  bodyText: {
+    textAlign: "center",
+    marginHorizontal: 30,
+    marginVertical: Dimensions.get("window").height / 60,
+    fontSize: Dimensions.get("window").height < 400 ? 16 : 20
+  }
 });
 
 export default GameOverScreen;
